@@ -6,7 +6,7 @@
         {
 
             //TestandoTipos.Aula();
-            EntradaDeDados.InputFixacao();
+            Funcoes.Funcao1();
 
         }
     }
