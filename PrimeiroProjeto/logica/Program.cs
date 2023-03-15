@@ -1,4 +1,6 @@
-﻿namespace PrimeiroProjeto
+﻿using PrimeiroProjeto.logica;
+
+namespace PrimeiroProjeto
 {
     class Program
     {
@@ -6,8 +8,7 @@
         {
 
             //TestandoTipos.Aula();
-            Funcoes.Funcao1();
-
+            ExerciciosFor.Exercicio1();
         }
     }
 }
