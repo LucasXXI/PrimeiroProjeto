@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PrimeiroProjeto
+﻿namespace PrimeiroProjeto
 {
     class Condicionais
     {
@@ -54,11 +48,6 @@ namespace PrimeiroProjeto
                 Console.WriteLine($"Boa noite, a hora é {hora}hr");
             }
               
-        }
-
-        public static void Exercicio3()
-        {
-
         }
     }
 }
