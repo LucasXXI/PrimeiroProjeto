@@ -1,5 +1,6 @@
 ﻿using PrimeiroProjeto.logica;
 using PrimeiroProjeto.poo;
+using PrimeiroProjeto.poo.exerciciosClasses;
 using System.Globalization;
 
 namespace PrimeiroProjeto
@@ -8,14 +9,25 @@ namespace PrimeiroProjeto
     {
         static void Main(string[] args)
         {
-            Console.Write("Digite o valor da cotacao: ");
-            double cotacao1 = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture );
+            Aluno aluno = new Aluno();
 
-            Console.Write("Digite uma quantia: ");
-            double quantia1 = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-           
-            double total = Moedas.Cambio(cotacao1, quantia1);
-            Console.WriteLine("Valor total do Cambio: R$" + total.ToString("F2", CultureInfo.InvariantCulture));
+            Console.WriteLine("Digite as Três notas: ");
+            aluno.nota1 = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            aluno.nota2 = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            aluno.nota3 = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            Console.WriteLine("NOTA FINAL:" + aluno.NotaFinal().ToString("F2", CultureInfo.InvariantCulture));
+
+            if(aluno.Aprovado() == true)
+            {
+                Console.Write("APROVADO");
+            }
+            else
+            {
+                Console.WriteLine("REPROVADO");
+                Console.WriteLine("FALTAM: " + aluno.QuantoFalta().ToString("F2", CultureInfo.InvariantCulture));
+            }
+
         }
     }
 }
