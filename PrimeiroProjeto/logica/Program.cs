@@ -11,63 +11,63 @@ namespace PrimeiroProjeto
     {
         static void Main(string[] args)
         {
-           Banco b = new Banco();
+            Banco banco;
 
             Console.WriteLine("-----BANCO----");
             Console.Write("Entre o numero da conta: ");
-            b.Numero = int.Parse(Console.ReadLine());
+            int numero = int.Parse(Console.ReadLine());
 
             Console.Write("Entre o Titular da conta: ");
-            b.Titular = Console.ReadLine();
+            string titular = Console.ReadLine();
 
             Console.Write("Haverá Deposito inicial? (s/n) ");
             char c = char.Parse(Console.ReadLine());
 
-            while(c != 'S' || c != 's' || c != 'n' || c !=  'N')
-            {
                 if (c == 's' || c == 'S')
                 {
                     Console.Write("Entre o valor do deposito: ");
                     double valorDep = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-                    b.Deposito(valorDep);
+                    banco = new Banco(numero, titular, valorDep);
+                    
 
                     Console.WriteLine("Dados da conta:");
-                    Console.WriteLine(b);
+                    Console.WriteLine(banco);
 
                     Console.WriteLine();
                     Console.WriteLine("Entre um valor para deposito: ");
                     valorDep = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-                    b.Deposito(valorDep);
+                    banco.Deposito(valorDep);
                     Console.WriteLine("Dados da conta atualizados: ");
-                    Console.Write(b);
+                    Console.Write(banco);
 
                     Console.WriteLine();
                     Console.Write("Entre um valor para saque: ");
                     double valSaq = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-                    b.Saque(valSaq);
+                    banco.Saque(valSaq);
                     Console.WriteLine("Dados da conta atualizados: ");
-                    Console.Write(b);
+                    Console.Write(banco);
                 }
                 else if (c == 'n' || c == 'N')
                 {
+                    banco = new Banco(numero, titular);
                     Console.WriteLine("Dados da conta:");
-                    Console.WriteLine(b);
+                    Console.WriteLine(banco);
+                    
 
                     Console.WriteLine();
                     Console.WriteLine("Entre um valor para deposito: ");
                     double valorDep = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-                    b.Deposito(valorDep);
+                    banco.Deposito(valorDep);
                     Console.WriteLine("Dados da conta atualizados: ");
-                    Console.Write(b);
+                    Console.Write(banco);
 
                     Console.WriteLine();
                     Console.Write("Entre um valor para saque: ");
                     double valSaq = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-                    b.Saque(valSaq);
+                    banco.Saque(valSaq);
                     Console.WriteLine("Dados da conta atualizados: ");
-                    Console.Write(b);
+                    Console.Write(banco);
                 }
             }
         }
     }
-}

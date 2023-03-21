@@ -4,46 +4,30 @@ namespace PrimeiroProjeto.poo.construtores
 {
     class Banco
     {
-        private string _titular;
-        private double _saldo;
-        private int _numero;
-        
-        public Banco()
-        {
-            Saldo = 0;
-        }
-        
+        public string Titular { get; set; }
+        public double Saldo { get; private set; }
+        public int Numero { get; private set; }
 
-        public string Titular
+        public Banco(int numero, string titular)
         {
-            get { return _titular; }
-            set {
-                if(value != null && value.Length > 1) {
-                    _titular = value;
-                }
-            }
+            Numero = numero;
+            Titular = titular;
+
         }
 
-        public double Saldo
+        public Banco(int numero, string titular, double saldo) : this(numero, titular)
         {
-            get { return _saldo; }
-            set { _saldo = value; }
-        }
-
-        public int Numero
-        {
-            get { return _numero; }
-            set { _numero = value; }    
+            Saldo = saldo;
         }
 
         public void Deposito(double quantia)
         {
-            _saldo += quantia;
+            Saldo += quantia;
         }
 
         public void Saque(double quantia)
         {
-            _saldo = (Saldo - quantia) - 5;
+            Saldo = (Saldo - quantia) - 5;
         }
 
         public override string ToString()
