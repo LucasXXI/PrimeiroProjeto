@@ -13,29 +13,39 @@ namespace PrimeiroProjeto
     {
         static void Main(string[] args)
         {
-            Console.Write("Quantos produtos voce quer adicionar?: ");
-            int n = int.Parse(Console.ReadLine());
+            Hotel[] reserva = new Hotel[10]; 
 
-            VetoresProdutos[] vect = new VetoresProdutos[n];
+            Console.WriteLine("Serão quantas reservas?");
+            int r = int.Parse(Console.ReadLine());
 
-            for(int i = 0; i < n; i++)
+
+            for(int i  = 1; i <= r; i++)
             {
-                Console.Write("Digite um nome do produto: ");
-                string name = Console.ReadLine();
-                Console.Write("Digite um preço para o produto: ");
-                double price = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-                vect[i] = new VetoresProdutos { Name = name, Price = price };
+                Console.WriteLine($"Aluguel #{i}:");
+                Console.Write("Nome: ");
+                string cliente = Console.ReadLine();
 
+                Console.Write("Email: ");
+                string email = Console.ReadLine();
+
+                Console.Write("Quarto: ");
+                int quarto = int.Parse(Console.ReadLine());
+
+                reserva[quarto] = new Hotel(cliente, email);
             }
 
-            double sum = 0.0;
-            for(int i = 0; i < n; i++)
+
+            Console.WriteLine();
+            Console.WriteLine("Quartos Ocupados: ");
+            for(int i = 0; i < 10;  i++)
             {
-                sum += vect[i].Price;
+                if (reserva[i] != null)
+                {
+                    Console.WriteLine(i + ": " + reserva[i]);
+                }
             }
 
-            double avg = sum / n;
-            Console.Write("AVARAGE PRICE': " + avg.ToString("F2", CultureInfo.InvariantCulture));
         }
     }
+
 }
