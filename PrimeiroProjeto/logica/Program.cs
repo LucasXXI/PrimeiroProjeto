@@ -5,6 +5,7 @@ using PrimeiroProjeto.poo.construtores;
 using System.Globalization;
 using System.Security.Cryptography.X509Certificates;
 using PrimeiroProjeto.poo.Structs;
+using PrimeiroProjeto.vetores;
 
 namespace PrimeiroProjeto
 {
@@ -12,26 +13,29 @@ namespace PrimeiroProjeto
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Quantas alturas voce quer adicionar?");
+            Console.Write("Quantos produtos voce quer adicionar?: ");
             int n = int.Parse(Console.ReadLine());
 
-            double[] vect = new double[n];
+            VetoresProdutos[] vect = new VetoresProdutos[n];
 
             for(int i = 0; i < n; i++)
             {
-                Console.WriteLine("Digite uma Altura: ");
-                vect[i] = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                Console.Write("Digite um nome do produto: ");
+                string name = Console.ReadLine();
+                Console.Write("Digite um preço para o produto: ");
+                double price = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                vect[i] = new VetoresProdutos { Name = name, Price = price };
 
             }
 
-            foreach(double element in vect)
+            double sum = 0.0;
+            for(int i = 0; i < n; i++)
             {
-                Console.WriteLine(element.ToString("F2", CultureInfo.InvariantCulture));
+                sum += vect[i].Price;
             }
 
-            double avg = vect.Sum() / n;
-
-            Console.Write("AVARAGE HEIGHT: " + avg.ToString("F2", CultureInfo.InvariantCulture));
+            double avg = sum / n;
+            Console.Write("AVARAGE PRICE': " + avg.ToString("F2", CultureInfo.InvariantCulture));
         }
     }
 }
