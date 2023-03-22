@@ -15,9 +15,9 @@ namespace PrimeiroProjeto.poo.construtores
 
         }
 
-        public Banco(int numero, string titular, double saldo) : this(numero, titular)
+        public Banco(int numero, string titular, double depositoInicial) : this(numero, titular)
         {
-            Saldo = saldo;
+            Deposito(depositoInicial);
         }
 
         public void Deposito(double quantia)
