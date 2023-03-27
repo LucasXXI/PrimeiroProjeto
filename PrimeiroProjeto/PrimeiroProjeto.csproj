@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <Folder Include="poo\encapsulamento\" />
+    <Folder Include="poo\enum\" />
   </ItemGroup>
 
 </Project>

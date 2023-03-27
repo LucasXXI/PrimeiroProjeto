@@ -5,6 +5,8 @@ using PrimeiroProjeto.poo.construtores;
 using System.Globalization;
 using PrimeiroProjeto.poo.Structs;
 using PrimeiroProjeto.vetores;
+using PrimeiroProjeto.Entities;
+using PrimeiroProjeto.Entities.Enums;
 
 namespace PrimeiroProjeto
 {
@@ -12,39 +14,21 @@ namespace PrimeiroProjeto
     {
         static void Main(string[] args)
         {
-            int i = int.Parse(Console.ReadLine());
-            
-            int[,] mat = new int[i, i];
+            Order order = new Order {
+                Id = 1080,
+                Moment = DateTime.Now,
+                Status = OrderStatus.PendingPayment
+             };
 
-            for(int n = 0; n < i; n++)
-            {
-                string[] values = Console.ReadLine().Split(' ');
+            Console.WriteLine(order);
 
-                for(int j = 0; j < i; j++)
-                {
-                    mat[n, j] = int.Parse(values[j]);
-                }
-            }
-            //search for the main diagonal elements of mat
-            Console.WriteLine("Diagonal Principal");
-            for(int a = 0; a < i; a++)
-            {
-                Console.WriteLine(mat[a, a] + " ");
-            }
-            Console.WriteLine();
+            string txt = OrderStatus.PendingPayment.ToString();
 
-            int count = 0;
-            for(int n = 0; n < i; n++)
-            {
-                for(int j = 0; j < i; j++)
-                {
-                    if (mat[n, j] < 0)
-                    {
-                        count++;
-                    }
-                }
-            }
-            Console.WriteLine("Negative number: " + count);
+            OrderStatus os = Enum.Parse<OrderStatus>("Delivered");
+
+            Console.WriteLine(os);
+            Console.WriteLine(txt);
         }
+
     }
 }
