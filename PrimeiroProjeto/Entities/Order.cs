@@ -10,7 +10,6 @@ namespace PrimeiroProjeto.Entities
 {
     internal class Order
     {
-        public int Id { get; set; }
         public DateTime Moment { get; set; }
         public OrderStatus Status { get; set; }
 
@@ -20,9 +19,8 @@ namespace PrimeiroProjeto.Entities
 
         public Order() { }
 
-        public Order(int id, DateTime moment, OrderStatus status, Client client)
+        public Order(DateTime moment, OrderStatus status, Client client)
         {
-            Id = id;
             Moment = moment;
             Status = status;
             Client = client;
